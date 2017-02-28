@@ -42,6 +42,6 @@
     <meta name="keywords" content="portfolio, graphism, motion" />
 
     <title><?= get_option('blogname') ?></title>
-    <link href="public/compressed/main.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= PUBLIC_PATH ?>compressed/main.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>

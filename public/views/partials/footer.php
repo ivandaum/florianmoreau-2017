@@ -1,5 +1,5 @@
 <footer>
 
 </footer>
-<script src="public/compressed/main.min.js" type="text/javascript"></script>
+<script src="<?= PUBLIC_PATH ?>compressed/main.min.js" type="text/javascript"></script>
 </body>
