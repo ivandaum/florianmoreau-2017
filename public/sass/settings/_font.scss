@@ -1,0 +1,31 @@
+$font-directory:'/wp-content/themes/ivandaum-2016/public/fonts/';
+$yantra-directory: $font-directory + 'yantramanav/';
+$primaryFont: 'Yantramanav', arial, sans-serif;
+
+
+@font-face {
+  font-family: 'Yantramanav';
+  src: url($yantra-directory + 'yantramanav-light-webfont.woff2') format('woff2'),
+  url($yantra-directory + 'yantramanav-light-webfont.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Yantramanav';
+  src: url($yantra-directory + 'yantramanav-regular-webfont.woff2') format('woff2'),
+  url($yantra-directory + 'yantramanav-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Yantramanav';
+  src: url($yantra-directory + 'yantramanav-medium-webfont.woff2') format('woff2'),
+  url($yantra-directory + 'yantramanav-medium-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+
+}
