@@ -18,8 +18,8 @@ class Controller {
     {
         if($args) extract($args);
 
-        get_template_part(VIEW_PATH.'partials/head');
-        get_template_part(VIEW_PATH.$view);
-        get_template_part(VIEW_PATH.'partials/footer');
+        require(TEMPLATES_PATH.'partials/head.php');
+        require(TEMPLATES_PATH.$view.'.php');
+        require(TEMPLATES_PATH.'partials/footer.php');
     }
 }

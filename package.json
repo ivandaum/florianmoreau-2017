@@ -8,6 +8,7 @@
     "gulp-sass": "*",
     "gulp-uglify": "*",
     "gulp-util": "^3.0.7",
+    "masonry-layout": "^4.1.1",
     "node-sass": "*"
   },
   "name": "florianmoreau-2017",
