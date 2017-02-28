@@ -1,5 +1,7 @@
 <?php
 namespace App\Controller;
+use App\Model\Project;
+use \App\Service\ProjectFormator;
 
 class Page extends Controller {
     public function __construct()
@@ -9,8 +11,12 @@ class Page extends Controller {
 
     public function home()
     {
+        $model = new Project();
 
-        self::render('home',['test' => 'yolo']);
+        $projects = $model::all();
+        $projects = ProjectFormator::formatAll($projects);
+
+        self::render('home',['projects' => $projects]);
     }
 
     public function single()

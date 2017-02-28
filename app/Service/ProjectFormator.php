@@ -9,7 +9,19 @@ class ProjectFormator
     {
     }
 
-    static public function post($project)
+    static public function formatAll($array)
+    {
+
+        $formated = [];
+        foreach($array as $ar) {
+            $formated[] = self::formatOne($ar);
+        }
+
+        return $formated;
+    }
+
+
+    static public function formatOne($project)
     {
         $formatedProject = array();
         $formatedProject['id'] = $project->ID;
