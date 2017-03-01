@@ -1,5 +1,5 @@
 <div class="project-card">
-    <a href="#" class="project-card_content">
+    <a href="<?= $project['link'] ?>" class="project-card_content">
         <div class="project-card_arrow"></div>
         <div class="project-card_cover">
             <div class="image" style="background-image: url(<?= $project['image']['medium'] ?>)"></div>

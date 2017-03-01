@@ -14,8 +14,11 @@ class Controller {
         $this->wp_query = $wp_query;
     }
 
-    static public function render($view,$args = null)
+    static public function render($view,$args = [])
     {
+
+        $args['categories'] = get_categories();
+
         if($args) extract($args);
 
         require(TEMPLATES_PATH.'partials/head.php');

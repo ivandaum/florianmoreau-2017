@@ -31,11 +31,6 @@ class ProjectFormator
         $formatedProject['slug'] = $project->post_name;
         $formatedProject['description'] = $project->post_excerpt;
         $formatedProject['has_description'] = !empty($project->post_excerpt);
-        $formatedProject['image'] = array(
-            'full' => wp_get_attachment_image_src(get_post_thumbnail_id($project->ID), 'full')[0],
-            'medium' => wp_get_attachment_image_src(get_post_thumbnail_id($project->ID), 'medium')[0],
-            'small' => wp_get_attachment_image_src(get_post_thumbnail_id($project->ID), 'thumbnail')[0]
-        );
         $formatedProject['html_image'] = array(
             'full' => '<img src="' . $formatedProject['image']['full'] . '" class="img-background" />',
             'medium' => '<img src="' . $formatedProject['image']['medium'] . '" class="img-background" />',
@@ -52,11 +47,6 @@ class ProjectFormator
         $tags = wp_get_post_tags($project->ID);
         foreach ($tags as $tag) {
             $formatedProject['tags'][] = $tag->name;
-        }
-        $formatedProject['has_tags'] = !empty($formatedProject['tags']) && count($formatedProject['tags']) > 0;
-        if ($formatedProject['category'] == 'portfolio') {
-            $formatedProject['number'] = $number < 10 ? '0' . $number : $number;
-            $number++;
         }
 
         return $formatedProject;

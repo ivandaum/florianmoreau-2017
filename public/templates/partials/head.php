@@ -45,3 +45,12 @@
     <link href="<?= PUBLIC_PATH ?>compressed/main.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<nav class="navbar-primary if-you-click-on-it-you-will-loose-your-mind">
+
+
+    <li><a href="<?= home_url() ?>" cat-id="-1">All</a></li>
+    <?php foreach($categories as $cat): ?>
+        <li><a href="<?= home_url($cat->slug) ?>" cat-id="<?= $cat->cat_ID ?>"><?= $cat->name ?></a></li>
+    <?php endforeach; ?>
+    <li><a href="<?= home_url('contact') ?>" cat-id="-1">Contact</a></li>
+</nav>

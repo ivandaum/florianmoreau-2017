@@ -22,16 +22,16 @@ class Page extends Controller {
     public function single()
     {
 
-        self::render('home',['test' => 'yolo']);
+        self::render('single');
     }
 
     public function archive()
     {
-        self::render('home',['test' => 'yolo']);
+        self::render('archive');
     }
 
     public function page404()
     {
-        self::render('404',['test' => 'yolo']);
+        self::render('404');
     }
 }
