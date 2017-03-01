@@ -2,4 +2,12 @@ body {
   @extend .container;
   background:$background;
   color:$white;
+  font-family: $secondFont;
+  font-weight:normal;
+}
+
+.projects-list {
+  padding:0 45px;
+  margin-top:360px;
+
 }

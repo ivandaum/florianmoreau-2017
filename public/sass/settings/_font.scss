@@ -1,31 +1,29 @@
-$font-directory:'/wp-content/themes/ivandaum-2016/public/fonts/';
-$yantra-directory: $font-directory + 'yantramanav/';
-$primaryFont: 'Yantramanav', arial, sans-serif;
+$font-directory:'/wp-content/themes/florianmoreau-2017/public/fonts/';
+$roboto-directory: $font-directory + 'roboto/';
+$avenir-directory: $font-directory + 'avenir/';
 
+$primaryFont: 'roboto', arial, sans-serif;
+$secondFont: 'avenir', georgia, sans-serif;
 
 @font-face {
-  font-family: 'Yantramanav';
-  src: url($yantra-directory + 'yantramanav-light-webfont.woff2') format('woff2'),
-  url($yantra-directory + 'yantramanav-light-webfont.woff') format('woff');
-  font-weight: 100;
+  font-family: 'roboto';
+  src: url($roboto-directory + 'roboto-regular-webfont.woff2') format('woff2'),
+  url($roboto-directory + 'roboto-regular-webfont.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
 
 }
 
 @font-face {
-  font-family: 'Yantramanav';
-  src: url($yantra-directory + 'yantramanav-regular-webfont.woff2') format('woff2'),
-  url($yantra-directory + 'yantramanav-regular-webfont.woff') format('woff');
-  font-weight: 400;
+  font-family: 'avenir';
+  src: url($avenir-directory + 'AvenirLTStd-Medium.otf') format('otf');
+  font-weight: normal;
   font-style: normal;
-
 }
 
 @font-face {
-  font-family: 'Yantramanav';
-  src: url($yantra-directory + 'yantramanav-medium-webfont.woff2') format('woff2'),
-  url($yantra-directory + 'yantramanav-medium-webfont.woff') format('woff');
-  font-weight: 700;
+  font-family: 'avenir';
+  src: url($avenir-directory + 'AvenirLTStd-Black.otf') format('otf');
+  font-weight: bold;
   font-style: normal;
-
 }

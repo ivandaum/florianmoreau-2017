@@ -2,6 +2,10 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+add_theme_support( 'post-thumbnails' );
+set_post_thumbnail_size( 300, 600, true );
+add_image_size( 'image-preview', 500, 9999 );
+
 remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
 remove_action( 'wp_head', 'feed_links', 2 ); // Display the links to the general feeds: Post and Comment Feed
 remove_action( 'wp_head', 'rsd_link' ); // Display the link to the Really Simple Discovery service endpoint, EditURI link

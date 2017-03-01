@@ -13,7 +13,7 @@ class Page extends Controller {
     {
         $model = new Project();
 
-        $projects = $model::all();
+        $projects = $model::getAll();
         $projects = ProjectFormator::formatAll($projects);
 
         self::render('home',['projects' => $projects]);

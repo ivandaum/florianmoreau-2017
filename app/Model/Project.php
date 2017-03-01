@@ -6,12 +6,12 @@ class Project {
     public function __construct() {
         self::$query = [
             'post_type' => 'post',
-            'posts_per_page' => 1,
+            'posts_per_page' => -1,
             'post_status' => 'publish',
         ];
     }
 
-    static public function all()
+    static public function getAll()
     {
         $builder = new \WP_Query(self::$query);
         return $builder->posts;
@@ -28,7 +28,7 @@ class Project {
         return $builder->posts;
     }
 
-    static public function find($id = null)
+    static public function findById($id = null)
     {
         if(!$id) return false;
 

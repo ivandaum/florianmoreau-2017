@@ -3,4 +3,17 @@
   width:100%;
   margin:0;
   padding:0;
+  position:relative;
+}
+.section-container {
+  @extend .container;
+  max-width:90%;
+  padding-top:110px;
+  margin:0 auto;
+}
+.content-container {
+  @extend .container;
+  width:calc(100% - 175px);
+  max-width:1000px;
+  margin:0 auto;
 }
