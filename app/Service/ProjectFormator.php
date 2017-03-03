@@ -31,10 +31,10 @@ class ProjectFormator
         $formatedProject['slug'] = $project->post_name;
         $formatedProject['description'] = $project->post_excerpt;
         $formatedProject['has_description'] = !empty($project->post_excerpt);
-        $formatedProject['html_image'] = array(
-            'full' => '<img src="' . $formatedProject['image']['full'] . '" class="img-background" />',
-            'medium' => '<img src="' . $formatedProject['image']['medium'] . '" class="img-background" />',
-            'small' => '<img src="' . $formatedProject['image']['small'] . '" class="img-background" />',
+        $formatedProject['image'] = array(
+            'full' => wp_get_attachment_image_src( get_post_thumbnail_id($project->ID), 'full' )[0],
+            'medium' => wp_get_attachment_image_src( get_post_thumbnail_id($project->ID), 'medium' )[0],
+            'small' => wp_get_attachment_image_src( get_post_thumbnail_id($project->ID), 'thumbnail' )[0]
         );
         $formatedProject['github_link'] = get_post_meta($project->ID, GITHUB_LINK, true);
         $formatedProject['project_link'] = get_post_meta($project->ID, PROJECT_LINK, true);

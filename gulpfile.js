@@ -5,8 +5,8 @@ var uglify = require('gulp-uglify');
 
 DEST_DIR = './public/compressed/';
 JS_FILE = [
-    '!./node_modules/gsap/src/uncompressed/jquery.gsap.min.js',
-    './node_modules/gsap/src/uncompressed/*.min.js',
+    './node_modules/gsap/src/uncompressed/*.js',
+    '!./node_modules/gsap/src/uncompressed/jquery.gsap.js',
     './public/js/functions.js',
     './public/js/Class/*.js',
     './public/js/main.js'

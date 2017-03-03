@@ -16,7 +16,7 @@ class Page extends Controller {
         $projects = $model::getAll();
         $projects = ProjectFormator::formatAll($projects);
 
-        self::render('home',['projects' => $projects]);
+        self::render('projects',['projects' => $projects]);
     }
 
     public function single()
@@ -27,7 +27,16 @@ class Page extends Controller {
 
     public function archive()
     {
-        self::render('archive');
+        global $wp_query;
+        $model = new Project();
+
+        $category = get_category( get_query_var( 'cat' ) );
+        $catId = $category->cat_ID;
+
+        $projects = $model::getByCategory($catId);
+        $projects = ProjectFormator::formatAll($projects);
+
+        self::render('projects',['projects' => $projects]);
     }
 
     public function page404()

@@ -3,7 +3,7 @@ $roboto-directory: $font-directory + 'roboto/';
 $avenir-directory: $font-directory + 'avenir/';
 
 $primaryFont: 'roboto', arial, sans-serif;
-$secondFont: 'avenir', georgia, sans-serif;
+$secondFont: 'avenir', arial, sans-serif;
 
 @font-face {
   font-family: 'roboto';

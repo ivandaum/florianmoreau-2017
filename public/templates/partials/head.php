@@ -46,11 +46,14 @@
 </head>
 <body>
 <nav class="navbar-primary if-you-click-on-it-you-will-loose-your-mind">
-
-
-    <li><a href="<?= home_url() ?>" cat-id="-1">All</a></li>
-    <?php foreach($categories as $cat): ?>
-        <li><a href="<?= home_url($cat->slug) ?>" cat-id="<?= $cat->cat_ID ?>"><?= $cat->name ?></a></li>
-    <?php endforeach; ?>
-    <li><a href="<?= home_url('contact') ?>" cat-id="-1">Contact</a></li>
+    <p class="close-nav">&times;</p>
+    <ul>
+        <li><a href="<?= home_url() ?>" cat-id="-1">All</a></li>
+        <?php foreach($categories as $cat): ?>
+            <li><a href="<?= home_url($cat->slug) ?>" cat-id="<?= $cat->cat_ID ?>"><?= $cat->name ?></a></li>
+        <?php endforeach; ?>
+        <li><a href="<?= home_url('contact') ?>" cat-id="-1">Contact</a></li>
+    </ul>
 </nav>
+<div id="app" class="container">
+    <p class="open-nav"> — </p>
