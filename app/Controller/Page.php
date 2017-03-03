@@ -16,7 +16,10 @@ class Page extends Controller {
         $projects = $model::getAll();
         $projects = ProjectFormator::formatAll($projects);
 
-        self::render('projects',['projects' => $projects]);
+        self::render('projects',[
+            'projects' => $projects,
+            'title' => explodeTitle('Florian Moreau')
+        ]);
     }
 
     public function single()
@@ -31,12 +34,14 @@ class Page extends Controller {
         $model = new Project();
 
         $category = get_category( get_query_var( 'cat' ) );
-        $catId = $category->cat_ID;
 
-        $projects = $model::getByCategory($catId);
+        $projects = $model::getByCategory($category->cat_ID);
         $projects = ProjectFormator::formatAll($projects);
 
-        self::render('projects',['projects' => $projects]);
+        self::render('projects',[
+            'projects' => $projects,
+            'title' => explodeTitle($category->name)
+        ]);
     }
 
     public function page404()

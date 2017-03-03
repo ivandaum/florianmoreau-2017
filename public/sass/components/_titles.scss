@@ -1,0 +1,47 @@
+.section-container-title {
+  font-family:$primaryFont;
+  color:$white;
+  font-size: 30px;
+  width: 175px;
+  text-align: center;
+  height: 100vh;
+  text-transform: uppercase;
+  display: block;
+  position:relative;
+  h1 {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    display: block;
+    width: 175px;
+    height: 175px;
+    line-height:150px;
+    margin: auto;
+    left: 0;
+    letter-spacing:10px;
+    transform: rotate(-90deg);
+    &.double {
+      line-height:75px;
+    }
+    span {
+      display:block;
+      position:relative;
+      padding-left:100px;
+      &:before {
+        content: " ";
+        background:$white;
+        height:1px;
+        width:75px;
+        display:inline-block;
+        position:absolute;
+        margin:auto;
+        top:0;
+        bottom:0;
+        left:0;
+      }
+      &:nth-of-type(2) {
+        margin-left:100px;
+      }
+    }
+  }
+}

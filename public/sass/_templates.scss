@@ -6,6 +6,10 @@ body {
   font-weight:normal;
   overflow-x:hidden;
 }
+.open-nav {
+  position:fixed;
+  z-index:300;
+}
 
 .navbar-primary {
   @include transition-css(left,0.5s);
@@ -88,10 +92,6 @@ body {
 }
 
 #app {
-  -ms-transform: translate(0, 0); /* IE 9 */
-  -webkit-transform: translate(0, 0); /* Safari */
-  transform: translate(0, 0);
-  will-change:translate,opacity;
   z-index:100;
   margin:0;
   opacity:1;
@@ -102,14 +102,11 @@ body {
   left:0;
 }
 
-.projects-list {
-  @include transition-css((transform,opacity),0.3s,0.1s);
-  padding:0 45px;
-  margin-top:360px;
-}
-
 $translate: 100px;
-.navbar-open .projects-list {
+.moved-by-navbar {
+  @include transition-css((transform,opacity),0.3s,0.1s);
+}
+.navbar-open .moved-by-navbar {
   -ms-transform: translate($translate, 0); /* IE 9 */
   -webkit-transform: translate($translate, 0); /* Safari */
   transform: translate($translate, 0);

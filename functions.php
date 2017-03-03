@@ -10,3 +10,14 @@ function debug($array) {
     echo json_encode($array);die;
 }
 
+function explodeTitle($title) {
+    $words = explode(' ',$title);
+    return $words;
+
+    $f = '';
+    foreach($words as $t) {
+        $f .= '<span>' .$t.'</span>';
+    }
+
+    return $f;
+}
