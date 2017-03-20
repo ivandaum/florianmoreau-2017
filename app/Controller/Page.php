@@ -24,13 +24,18 @@ class Page extends Controller {
 
     public function single()
     {
+        $id = $this->post->ID;
+        $model = new Project();
+        $project = $model::findById($id);
+        $project = ProjectFormator::formatOne($project[0]);
 
-        self::render('single');
+        self::render('single',[
+            'project' => $project
+        ]);
     }
 
     public function archive()
     {
-        global $wp_query;
         $model = new Project();
 
         $category = get_category( get_query_var( 'cat' ) );
