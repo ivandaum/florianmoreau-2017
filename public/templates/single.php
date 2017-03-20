@@ -5,6 +5,7 @@
             <h1><?= $project['title'] ?></h1>
         </div>
         <div class="single-content content-container">
+            <p class="project-year"><?= $project['date_year'] ?></p>
             <div class="single-content-cover">
                 <img src="<?= $project['image']['medium'] ?>" alt="">
             </div>
@@ -13,10 +14,11 @@
                     <?= $project['content'] ?>
                 <?php endif; ?>
             </div>
+            <button class="to-top">Top</button>
         </div>
 
-        <div class="back-category moved-by-navbar">
-
+        <div class="back-category">
+            <a href="<?= home_url($category->slug) ?>"><?= $category->cat_name ?></a>
         </div>
     </div>
 

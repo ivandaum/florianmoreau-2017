@@ -28,9 +28,10 @@ class Page extends Controller {
         $model = new Project();
         $project = $model::findById($id);
         $project = ProjectFormator::formatOne($project[0]);
-
+        $category = get_category_by_slug($project['category']);
         self::render('single',[
-            'project' => $project
+            'project' => $project,
+            'category' => $category
         ]);
     }
 
@@ -47,6 +48,11 @@ class Page extends Controller {
             'projects' => $projects,
             'title' => explodeTitle($category->name)
         ]);
+    }
+
+    public function page()
+    {
+        self::render('404');
     }
 
     public function page404()

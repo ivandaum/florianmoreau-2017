@@ -23,11 +23,14 @@ class ProjectFormator
 
     static public function formatOne($project)
     {
+
         $formatedProject = array();
         $formatedProject['id'] = $project->ID;
         $formatedProject['title'] = $project->post_title;
         $formatedProject['category'] = get_the_category($project->ID)[0]->slug;
         $formatedProject['link'] = get_permalink($project->ID);
+        $formatedProject['date'] = $project->post_date;
+        $formatedProject['date_year'] = date('Y',strtotime($project->post_date));
         $formatedProject['slug'] = $project->post_name;
         $formatedProject['description'] = $project->post_excerpt;
         $formatedProject['has_description'] = !empty($project->post_excerpt);
