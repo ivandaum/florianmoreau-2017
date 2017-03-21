@@ -29,7 +29,7 @@ App.prototype.callPage = function(button,_this) {
     var link = button.href
     $("body").removeClass();
     TweenMax.fromTo('body',0.4,{opacity:1},{opacity:0,onComplete:function() {
-
+        document.querySelector('body').scrollTop = 0
         $.get(link + '?ajax=1',function(data) {
             var html = JSON.parse(data).html;
             var bodyClass = JSON.parse(data).class;
