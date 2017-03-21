@@ -2,6 +2,9 @@
   .scroll-hacking {
     display:none;
   }
+  div:not(.single) > .section-container {
+    padding-bottom:100px;
+  }
   .project-card {
     margin:25px !important;
     min-height: 420px;
@@ -24,12 +27,19 @@
       margin-top: -100px;
     }
   }
-  .single .single-content-text p span {
+  .single:not(.page) .single-content-text p span {
     padding:50px 20px;
+  }
+  .single.page .single-content-text p span {
+    padding:0 20px;
   }
   .projects-list {
     justify-content: center;
   }
+
+}
+
+@include breakpoint($phone) {
   body {
     padding-bottom:100px;
   }
@@ -37,12 +47,18 @@
     position:absolute;
     bottom: -70px;
   }
-  .single .bottom-nav .networks li svg path{
-    fill:$white !important;
-  }
-}
+  .body-single, .body-page {
+    .bottom-nav .networks li svg path{
+      fill:$white !important;
+    }
 
-@include breakpoint($phone) {
+    .bottom-nav:before  {
+      background:$white;
+    }
+    .bottom-nav .networks:after {
+      background:$white;
+    }
+  }
   .navbar-primary {
     width:100%;
     left:-100%;

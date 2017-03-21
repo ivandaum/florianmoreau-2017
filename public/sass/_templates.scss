@@ -196,15 +196,18 @@ $translate: 100px;
   display:block;
   z-index:300;
 }
-.single .scroll-hacking  {
-  background:$black;
-}
-.single .bottom-nav:before  {
-  background:$black;
-}
-.single .bottom-nav .networks:after {
-  background:$black;
-}
-.single .bottom-nav .networks li svg path{
-  fill:$black;
+
+.body-single, .body-page {
+  .scroll-hacking  {
+    background:$black;
+  }
+  .bottom-nav:before  {
+    background:$black;
+  }
+  .bottom-nav .networks:after {
+    background:$black;
+  }
+  .bottom-nav .networks li svg path{
+    fill:$black;
+  }
 }

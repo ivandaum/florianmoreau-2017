@@ -52,7 +52,16 @@ class Page extends Controller {
 
     public function page()
     {
-        self::render('404');
+        $cover = array(
+            'full' => wp_get_attachment_image_src( get_post_thumbnail_id($this->post->ID), 'full' )[0],
+            'medium' => wp_get_attachment_image_src( get_post_thumbnail_id($this->post->ID), 'medium' )[0],
+            'small' => wp_get_attachment_image_src( get_post_thumbnail_id($this->post->ID), 'thumbnail' )[0]
+        );
+
+        self::render('page',[
+            'post' => $this->post,
+            'cover' => $cover
+        ]);
     }
 
     public function page404()

@@ -46,8 +46,9 @@
 </head>
 <?php
 $class = '';
-$class = is_single() ? 'single' : $class;
-$class = is_home() ? 'home' : $class;
+$class = is_single() ? 'body-single' : $class;
+$class = is_home() ? 'body-home' : $class;
+$class = is_page() ? 'body-page' : $class;
 ?>
 <body class="<?= $class ?>">
 <nav class="navbar-primary if-you-click-on-it-you-will-loose-your-mind ">

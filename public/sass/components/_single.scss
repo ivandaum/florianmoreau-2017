@@ -57,6 +57,9 @@
         letter-spacing:1px;
       }
     }
+    p:last-child {
+      margin-bottom:0;
+    }
   }
   &-cover {
     max-width:200px;
@@ -165,4 +168,26 @@
   position:absolute;
   background:$white;
   z-index:50;
+}
+.single.page {
+
+  .single-content-text {
+    padding-top:50px;
+  }
+  p {
+    margin:0 auto;
+    letter-spacing:1px;
+    margin-bottom:40px;
+  }
+  p span {
+    max-width:550px;
+    line-height:30px;
+    padding: 0;
+    display:block;
+    font-weight:normal;
+  }
+
+  strong span {
+    font-weight:bold;
+  }
 }
