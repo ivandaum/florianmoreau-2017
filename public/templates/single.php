@@ -14,7 +14,10 @@
                     <?= $project['content'] ?>
                 <?php endif; ?>
             </div>
-            <button class="to-top">Top</button>
+            <button class="to-top">
+                <?= svg('arrow'); ?>
+                <span>Top</span>
+            </button>
         </div>
 
         <div class="back-category">

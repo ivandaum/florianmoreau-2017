@@ -56,4 +56,14 @@
     </ul>
 </nav>
 <div id="app" class="container">
-    <p class="open-nav moved-by-navbar"><?= svg('burger'); ?></p>
+    <button class="open-nav moved-by-navbar"><?= svg('burger'); ?></button>
+    <a href="<?= home_url() ?>" class="logo-home moved-by-navbar"><?= svg('logo'); ?></a>
+
+    <div class="bottom-nav moved-by-navbar">
+        <ul class="networks">
+            <li><a href="https://www.linkedin.com/in/florianmoreau/" target="_blank"><?= svg('in'); ?></a></li>
+            <li><a href="#" target="_blank"><?= svg('pin'); ?></a></li>
+            <li><a href="https://vimeo.com/florianmoreau" target="_blank"><?= svg('vimeo'); ?></a></li>
+            <li><a href="#" target="_blank"><?= svg('sound'); ?></a></li>
+        </ul>
+    </div>

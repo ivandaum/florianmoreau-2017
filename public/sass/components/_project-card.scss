@@ -34,6 +34,16 @@
     height: 45px;
     display: block;
     width: 100%;
+    text-align:center;
+    svg {
+      transform: rotate(90deg);
+      font-size: 10px;
+      height: 12px;
+      margin-top: 10px;
+      path {
+        fill:$black;
+      }
+    }
   }
 
   &_cover {
