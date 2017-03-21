@@ -21,3 +21,7 @@ function explodeTitle($title) {
 
     return $f;
 }
+
+function svg($icon = null) {
+    return file_get_contents(PUBLIC_PATH.'/images/icons/' . $icon . '.svg');
+}

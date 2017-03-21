@@ -46,7 +46,7 @@
 </head>
 <body>
 <nav class="navbar-primary if-you-click-on-it-you-will-loose-your-mind">
-    <p class="close-nav">&times;</p>
+    <p class="close-nav"><?= svg('close'); ?></p>
     <ul>
         <li><a href="<?= home_url() ?>" cat-id="-1">All</a></li>
         <?php foreach($categories as $cat): ?>
@@ -56,4 +56,4 @@
     </ul>
 </nav>
 <div id="app" class="container">
-    <p class="open-nav"> — </p>
+    <p class="open-nav moved-by-navbar"><?= svg('burger'); ?></p>
