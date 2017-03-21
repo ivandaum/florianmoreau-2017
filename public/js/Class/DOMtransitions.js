@@ -35,3 +35,28 @@ DOMtransitions.prototype.toggleNav = function() {
         removeClass(body,className)
     }
 }
+
+DOMtransitions.prototype.checkPage = function(className) {
+    if(className == 'body-home') this.projects()
+}
+
+DOMtransitions.prototype.projects = function() {
+
+    TweenMax.set('.projects-list', {marginTop:'300px'})
+    TweenMax.set('.section-container-title h1 span', {color:'black'})
+    TweenMax.set('.projects-list', {marginTop:'300px'})
+    TweenMax.set('.project-card', {opacity:0})
+    TweenMax.set('.project-card', {top:'-50px'})
+    setTimeout(function() {
+        $(".section-container-title h1").addClass('active')
+    },100)
+    setTimeout(function() {
+        TweenMax.staggerFromTo('.section-container-title h1 span',0.5, {color:'black'},{color:'white'},0.2)
+    },300)
+
+    setTimeout(function() {
+        TweenMax.fromTo('.projects-list',0.3, {marginTop:'340px'},{marginTop:'360px'})
+        TweenMax.staggerFromTo('.project-card',0.4, {opacity:0},{opacity:1},0.05)
+        TweenMax.staggerFromTo('.project-card',0.5, {top:'-50px'},{top:0},0.1)
+    },500)
+}

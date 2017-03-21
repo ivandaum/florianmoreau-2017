@@ -44,33 +44,28 @@
     <title><?= get_option('blogname') ?></title>
     <link href="<?= PUBLIC_PATH ?>compressed/main.min.css" rel="stylesheet" type="text/css" />
 </head>
-<?php
-$class = '';
-$class = is_single() ? 'body-single' : $class;
-$class = is_home() ? 'body-home' : $class;
-$class = is_page() ? 'body-page' : $class;
-?>
-<body class="<?= $class ?>">
+<?php global $bodyClass ?>
+<body class="<?= $bodyClass ?>">
 <nav class="navbar-primary if-you-click-on-it-you-will-loose-your-mind ">
     <p class="close-nav"><?= svg('close'); ?></p>
     <ul>
-        <li><a href="<?= home_url() ?>" cat-id="-1"><?= svg('small-arrow'); ?> All</a></li>
+        <li><a href="<?= home_url() ?>" cat-id="-1" class="ajax-link"><?= svg('small-arrow'); ?> All</a></li>
         <?php foreach($categories as $cat): ?>
-            <li><a href="<?= home_url($cat->slug) ?>" cat-id="<?= $cat->cat_ID ?>"><?= svg('small-arrow'); ?><?= $cat->name ?></a></li>
+            <li><a href="<?= home_url($cat->slug) ?>" cat-id="<?= $cat->cat_ID ?>" class="ajax-link"><?= svg('small-arrow'); ?><?= $cat->name ?></a></li>
         <?php endforeach; ?>
-        <li><a href="<?= home_url('contact') ?>" cat-id="-1"><?= svg('small-arrow'); ?> Contact</a></li>
+        <li><a href="<?= home_url('contact') ?>" cat-id="-1" class="ajax-link"><?= svg('small-arrow'); ?> Contact</a></li>
     </ul>
 </nav>
-<div id="app" class="container">
-    <button class="open-nav moved-by-navbar"><?= svg('burger'); ?></button>
-    <a href="<?= home_url() ?>" class="logo-home moved-by-navbar"><?= svg('logo'); ?></a>
+<button class="open-nav moved-by-navbar"><?= svg('burger'); ?></button>
+<a href="<?= home_url() ?>" class="ajax-link logo-home moved-by-navbar"><?= svg('logo'); ?></a>
 
-    <div class="bottom-nav moved-by-navbar">
-        <ul class="networks">
-            <li><a href="https://www.linkedin.com/in/florianmoreau/" target="_blank"><?= svg('in'); ?></a></li>
-            <li><a href="#" target="_blank"><?= svg('pin'); ?></a></li>
-            <li><a href="https://vimeo.com/florianmoreau" target="_blank"><?= svg('vimeo'); ?></a></li>
-            <li><a href="https://soundcloud.com/florian614" target="_blank"><?= svg('sound'); ?></a></li>
-        </ul>
-    </div>
-    <div class="scroll-hacking moved-by-navbar"></div>
+<div class="bottom-nav moved-by-navbar">
+    <ul class="networks">
+        <li><a href="https://www.linkedin.com/in/florianmoreau/" target="_blank"><?= svg('in'); ?></a></li>
+        <li><a href="#" target="_blank"><?= svg('pin'); ?></a></li>
+        <li><a href="https://vimeo.com/florianmoreau" target="_blank"><?= svg('vimeo'); ?></a></li>
+        <li><a href="https://soundcloud.com/florian614" target="_blank"><?= svg('sound'); ?></a></li>
+    </ul>
+</div>
+<div class="scroll-hacking moved-by-navbar"></div>
+<div id="app" class="container">

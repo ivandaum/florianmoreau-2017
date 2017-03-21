@@ -1,5 +1,5 @@
 <div class="project-card">
-    <a href="<?= $project['link'] ?>" class="project-card_content">
+    <a href="<?= $project['link'] ?>" class="project-card_content ajax-link">
         <div class="project-card_arrow">
             <?= svg('arrow'); ?>
         </div>
