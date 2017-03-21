@@ -30,6 +30,9 @@
 }
 
 @include breakpoint($phone) {
+  body {
+    padding-bottom:100px;
+  }
   .section-container {
     display:block;
   }
@@ -40,5 +43,77 @@
       right: 0;
       width:295px;
     }
+  }
+  .single .single-content .to-top{
+    position: relative;
+    transform: rotate(0deg);
+    left: 0;
+    right: 0;
+    margin: 0;
+    font-size: 20px;
+    width: 50%;
+    font-weight: bold;
+    text-align: left;
+    float:left;
+    background: $black;
+    color: $white;
+    padding: 0 5%;
+    bottom: 0;
+    .icon-arrow {
+      height:10px;
+      width: 15px;
+      transform: rotate(-90deg);
+      line {
+        fill:$white;
+        stroke:$white;
+      }
+    }
+  }
+
+  .single .next-project {
+    display:block;
+    position: relative;
+    transform: rotate(0deg);
+    left: 0;
+    right: 0;
+    margin: 0;
+    font-size: 20px;
+    width: 50%;
+    font-weight: bold;
+    text-align: right;
+    float:left;
+    background: $black;
+    color: $white;
+    padding: 0 5%;
+    bottom: 0;
+    height:50px;
+    z-index:100;
+    text-transform: uppercase;
+    a {
+      display:block;
+      line-height:50px;
+      color:$white;
+    }
+    .icon-small-arrow {
+      height:15px;
+      width: 25px;
+      margin-left:5px;
+      transform: rotate(-180deg);
+      line {
+        fill:$white;
+        stroke:$white;
+      }
+    }
+  }
+
+  .single .back-category {
+    display:none;
+  }
+  .bottom-nav {
+    position:absolute;
+    bottom: -70px;
+  }
+  .single .bottom-nav .networks li svg path{
+    fill:$white !important;
   }
 }

@@ -41,9 +41,15 @@ class ProjectFormator
         );
         $formatedProject['content'] = $project->post_content;
         $formatedProject['has_content'] = !empty($project->post_content);
+        $formatedProject['next_post'] = get_next_post( true );
         $tags = wp_get_post_tags($project->ID);
         foreach ($tags as $tag) {
             $formatedProject['tags'][] = $tag->name;
+        }
+
+
+        if($formatedProject['next_post']) {
+            $formatedProject['next_post'] = get_permalink($formatedProject['next_post']->ID);
         }
 
         return $formatedProject;

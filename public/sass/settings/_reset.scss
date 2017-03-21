@@ -109,3 +109,8 @@ hr {
 input, select {
   vertical-align:middle;
 }
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

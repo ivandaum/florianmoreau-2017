@@ -89,32 +89,22 @@ body {
     }
   }
   ul li a {
-    color:$text;
-    font-size:20px;
-    line-height:40px;
-    letter-spacing:2px;
-    position:relative;
-    padding-left:0;
-    @include transition-css(padding,0.3s,0.2s);
-    &:before {
-      @include transition-css((opacity,width,margin),0.3s);
-      content: url('wp-content/themes/florianmoreau-2017/public/images/icons/small-arrow.svg');
-      height:10px;
-      display:block;
-      opacity:0;
+    color: $text;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    position: relative;
+    padding-left: 0;
+    @include transition-css(padding, 0.3s, 0.2s);
+    svg {
+      height:15px;
       width:0;
-      text-align:center;
-      float:left;
+      transform:rotate(180deg);
+      @include transition-css(width);
     }
-
     &:hover {
-      @include transition-css(padding,0.3s,0.1s);
-      padding-left:5px;
-      &:before {
-        @include transition-css((opacity,width,margin),0.3s);
-        opacity:1;
-        margin:0 5px;
-        width:10px;
+      svg {
+        width:15px;
       }
     }
   }
@@ -159,4 +149,8 @@ $translate: 100px;
     width: 15px;
     margin: 0 10px;
   }
+}
+
+.single .bottom-nav .networks li svg path{
+  fill:$black;
 }

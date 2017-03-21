@@ -20,8 +20,15 @@
             </button>
         </div>
 
+        <div class="clearfix">
         <div class="back-category">
-            <a href="<?= home_url($category->slug) ?>"><?= $category->cat_name ?></a>
+            <a href="<?= home_url($category->slug) ?>"><?= svg('small-arrow'); ?><?= $category->cat_name ?></a>
+        </div>
+        <?php if($project['next_post']): ?>
+        <div class="next-project hidden-desktop hidden-tablet">
+            <a href="<?= $project['next_post'] ?>">Next<?= svg('small-arrow'); ?></a>
+        </div>
+        <?php endif; ?>
         </div>
     </div>
 
