@@ -1,4 +1,7 @@
 @include breakpoint($small-desktop) {
+  .scroll-hacking {
+    display:none;
+  }
   .project-card {
     margin:25px !important;
     min-height: 420px;
@@ -27,11 +30,29 @@
   .projects-list {
     justify-content: center;
   }
+  body {
+    padding-bottom:100px;
+  }
+  .bottom-nav {
+    position:absolute;
+    bottom: -70px;
+  }
+  .single .bottom-nav .networks li svg path{
+    fill:$white !important;
+  }
 }
 
 @include breakpoint($phone) {
-  body {
-    padding-bottom:100px;
+  .navbar-primary {
+    width:100%;
+    left:-100%;
+    ul li a {
+      font-size:30px;
+      line-height:50px;
+      svg {
+        height:20px;
+      }
+    }
   }
   .section-container {
     display:block;
@@ -108,12 +129,5 @@
 
   .single .back-category {
     display:none;
-  }
-  .bottom-nav {
-    position:absolute;
-    bottom: -70px;
-  }
-  .single .bottom-nav .networks li svg path{
-    fill:$white !important;
   }
 }

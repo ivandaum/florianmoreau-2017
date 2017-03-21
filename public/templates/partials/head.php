@@ -72,3 +72,4 @@ $class = is_home() ? 'home' : $class;
             <li><a href="https://soundcloud.com/florian614" target="_blank"><?= svg('sound'); ?></a></li>
         </ul>
     </div>
+    <div class="scroll-hacking moved-by-navbar"></div>
