@@ -64,6 +64,6 @@
             <li><a href="https://www.linkedin.com/in/florianmoreau/" target="_blank"><?= svg('in'); ?></a></li>
             <li><a href="#" target="_blank"><?= svg('pin'); ?></a></li>
             <li><a href="https://vimeo.com/florianmoreau" target="_blank"><?= svg('vimeo'); ?></a></li>
-            <li><a href="#" target="_blank"><?= svg('sound'); ?></a></li>
+            <li><a href="https://soundcloud.com/florian614" target="_blank"><?= svg('sound'); ?></a></li>
         </ul>
     </div>

@@ -98,7 +98,8 @@ body {
     @include transition-css(padding,0.3s,0.2s);
     &:before {
       @include transition-css((opacity,width,margin),0.3s);
-      content: ">";
+      content: url('wp-content/themes/florianmoreau-2017/public/images/icons/small-arrow.svg');
+      height:10px;
       display:block;
       opacity:0;
       width:0;

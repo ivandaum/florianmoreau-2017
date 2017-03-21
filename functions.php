@@ -23,5 +23,6 @@ function explodeTitle($title) {
 }
 
 function svg($icon = null) {
-    return file_get_contents(PUBLIC_PATH.'/images/icons/' . $icon . '.svg');
+    include(PUBLIC_PATH_DIR . '/images/icons/' . $icon . '.svg');
+//    return file_get_contents(PUBLIC_PATH.'/images/icons/' . $icon . '.svg');
 }

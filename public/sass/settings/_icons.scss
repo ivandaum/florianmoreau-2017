@@ -27,16 +27,25 @@
 }
 
 .icon-logo path {
-  fill:#fff;
+  fill: #fff;
 }
 
 .icon-pin path {
-  fill:#fff;
+  fill: #fff;
 }
 
 .icon-sound g path {
-  fill:#fff;
+  fill: #fff;
 }
+
 .icon-vimeo g path {
-  fill:#fff;
+  fill: #fff;
+}
+
+.icon-small-arrow line {
+  fill: none;
+  stroke: #111111;
+  stroke-width: 1.5714;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
 }

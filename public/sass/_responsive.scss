@@ -1,0 +1,44 @@
+@include breakpoint($small-desktop) {
+  .project-card {
+    margin:25px !important;
+    min-height: 420px;
+  }
+  .project-card .project-card_content {
+    margin-top:0 !important;
+  }
+
+  .single .title {
+    margin-bottom: 150px;
+  }
+  .single .single-content {
+    &-cover {
+      position:relative;
+      left:0;
+      right:0;
+      margin:0 auto;
+    }
+    &-text {
+      margin-top: -100px;
+    }
+  }
+  .single .single-content-text p span {
+    padding:50px 20px;
+  }
+  .projects-list {
+    justify-content: center;
+  }
+}
+
+@include breakpoint($phone) {
+  .section-container {
+    display:block;
+  }
+  .section-container-title {
+    width: 100%;
+    h1 {
+      left: 0;
+      right: 0;
+      width:295px;
+    }
+  }
+}
