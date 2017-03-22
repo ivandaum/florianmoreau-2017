@@ -28,7 +28,18 @@
         -webkit-filter: grayscale(0%);
       }
     }
+
   }
+
+  &.active .project-card_content {
+    transform: scale(1,1) !important;
+    background-color:$white;
+    .project-card_cover .image {
+      filter: none;
+      -webkit-filter: grayscale(0%);
+    }
+  }
+
 
   &_arrow {
     height: 45px;
@@ -85,5 +96,21 @@
   &_description {
     font-family: $secondFont;
     font-weight:normal;
+  }
+}
+.temporary-DOM .project-card_content {
+  transform: scale(1,1) !important;
+  background-color:$white;
+  .project-card_cover .image {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+  }
+  .image {
+    @include transition-css();
+    position: absolute;
+    max-width: 200px;
+    max-height: 200px;
+    left: 100px;
+    top: -100px;
   }
 }

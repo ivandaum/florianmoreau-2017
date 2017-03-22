@@ -61,12 +61,16 @@ DOMtransitions.prototype.projects = function() {
     },500)
 }
 
-DOMtransitions.prototype.toTop = function() {
+DOMtransitions.prototype.toTop = function(callback) {
     var scrollTop = $("body").scrollTop();
     var to = {current:scrollTop}
     TweenMax.to(to,0.5,{current:0, onUpdate:function() {
         $("body").scrollTop(to.current)
     }})
+
+    if(typeof callback == 'function') {
+        callback()
+    }
 }
 
 DOMtransitions.prototype.onscrollProject = function() {

@@ -45,4 +45,5 @@
     </ul>
 </div>
 <div class="scroll-hacking moved-by-navbar"></div>
+<div class="temporary-DOM"></div>
 <div id="app" class="container">

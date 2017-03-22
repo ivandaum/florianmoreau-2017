@@ -36,6 +36,12 @@ App.prototype.bindAppLinks = function() {
 
 App.prototype.callPage = function(button,_this) {
     var link = button.href
+    var hasData = button.dataset.project
+
+    if(typeof hasData != 'undefined' && window.innerWidth >= 1155) {
+        return this.callProject(button,_this)
+    }
+
     $("body").removeClass();
     TweenMax.fromTo('body',0.4,{opacity:1},{opacity:0,onComplete:function() {
         document.querySelector('body').scrollTop = 0
@@ -56,4 +62,78 @@ App.prototype.callPage = function(button,_this) {
 
         })
     }});
+}
+
+App.prototype.callProject = function(button, _this) {
+
+
+    var link = button.href;
+    $("body").removeClass();
+    $(button).parent().addClass('active');
+
+    var elements = [
+        document.querySelector('.section-container-title'),
+        document.querySelector('.project-card.active .project-card_arrow'),
+        document.querySelector('.project-card.active h2'),
+        document.querySelector('.project-card.active p')
+    ];
+    var projects = document.querySelectorAll('.project-card');
+
+    for(var i=0;i<projects.length; i++) {
+
+        if(!$(projects[i]).hasClass('active')) {
+            TweenMax.to(projects[i],0.3,{opacity:0})
+        }
+    }
+    TweenMax.staggerTo(elements,0.3,{opacity:0},0.1)
+
+    setTimeout(function() {
+
+        button.style.width = button.offsetWidth + 'px'
+        button.style.position = 'fixed'
+        button.style.margin = 'auto'
+        $(button).addClass('section-container')
+
+        TweenMax.to(button,0.5,{top:'400px'})
+
+
+        $(".temporary-DOM").append(button)
+        transitions.toTop(function() {
+
+
+            var timeline = new TimelineMax({onComplete: function() {
+
+                $.get(link + '?ajax=1', function (data) {
+                    var html = JSON.parse(data).html;
+                    var bodyClass = JSON.parse(data).class;
+
+
+                    $(_this.app).html(html);
+                    $("body").addClass(bodyClass);
+
+                    window.history.pushState({}, " ", link)
+                    TweenMax.staggerFromTo([
+                        document.querySelector('.single .section-container'),
+                        document.querySelector('.single .single-background')
+                    ],0.5,{opacity:0},{opacity:1},1);
+
+
+                    $("#app .ajax-link").on('click', function (e) {
+                        e.preventDefault()
+                        _this.callPage(this, _this)
+                    })
+
+                    setTimeout(function() {
+                        document.querySelector(".temporary-DOM").innerHTML = ""
+                    },500)
+                })
+            }})
+
+            timeline
+                .set(button,{left:'0',right:'0'})
+                .to(button,0.5,{width:'100%',zIndex:'100'})
+
+
+        })
+    },400)
 }
