@@ -9,6 +9,11 @@
   }
 
   .title {
+    position:fixed;
+    top: 200px;
+    width: auto;
+    left: 0;
+    right: 0;
     text-align:center;
     font-size:30px;
     line-height:35px;
@@ -32,6 +37,7 @@
   position:relative;
   z-index:100;
   box-shadow:0 0 10px 10px rgba(0,0,0,0.2);
+  margin-top:200px;
   &-text {
     img {
       max-width:100%;
@@ -163,14 +169,16 @@
 .single .single-background {
   display:block;
   width:100%;
-  height:calc(100% - 60vh);
+  height:calc(100% - 40vh);
   top:60vh;
-  position:absolute;
+  position:fixed;
   background:$white;
   z-index:50;
 }
-.single.page {
 
+// PAGE
+
+.single.page {
   .single-content-text {
     padding-top:50px;
   }

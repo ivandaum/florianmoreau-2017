@@ -212,3 +212,20 @@ $translate: 100px;
     fill:$black;
   }
 }
+
+.page404 {
+  height:100vh;
+  background:url("/wp-content/themes/florianmoreau-2017/public/images/page404.jpg") no-repeat center center;
+  h1 {
+    font-family: $primaryFont;
+    font-size:150px;
+    height:150px;
+    width:300px;
+    margin:auto;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position:absolute;
+  }
+}

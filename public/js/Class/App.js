@@ -6,6 +6,9 @@ App.prototype.bind = function() {
     document.querySelector('.close-nav').addEventListener('click', transitions.toggleNav)
     document.querySelector('.open-nav').addEventListener('click', transitions.toggleNav)
 
+    window.addEventListener('scroll',function() {
+        transitions.onscrollProject()
+    })
     this.bindAppLinks();
 }
 
@@ -14,6 +17,12 @@ App.prototype.init = function(bodyClass) {
     bodyClass = bodyClass || document.querySelector('body').className;
     TweenMax.fromTo('body',0.5,{opacity:0},{opacity:1});
     transitions.checkPage(bodyClass);
+
+
+    $(".to-top").on('click', function(e) {
+        e.preventDefault();
+        transitions.toTop()
+    })
 }
 
 App.prototype.bindAppLinks = function() {

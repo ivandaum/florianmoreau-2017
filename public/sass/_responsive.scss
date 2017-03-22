@@ -1,9 +1,9 @@
 @include breakpoint($small-desktop) {
+  .body-home {
+    padding-bottom:40px;
+  }
   .scroll-hacking {
     display:none;
-  }
-  div:not(.single) > .section-container {
-    padding-bottom:100px;
   }
   .project-card {
     margin:25px !important;
@@ -15,8 +15,11 @@
 
   .single .title {
     margin-bottom: 150px;
+    font-size: 20px;
+    line-height:25px;
   }
   .single .single-content {
+    margin-top:300px;
     &-cover {
       position:relative;
       left:0;
@@ -36,16 +39,25 @@
   .projects-list {
     justify-content: center;
   }
-
 }
 
 @include breakpoint($phone) {
+
+  .single .single-background {
+    display:none;
+  }
+  .container, .section-container, .content-container, body {
+    min-height:auto;
+  }
   body {
     padding-bottom:100px;
   }
+  .single, .page {
+    margin-bottom:100px;
+  }
   .bottom-nav {
     position:absolute;
-    bottom: -70px;
+    bottom: 50px;
   }
   .body-single, .body-page {
     .bottom-nav .networks li svg path{
