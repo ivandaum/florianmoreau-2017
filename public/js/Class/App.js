@@ -10,6 +10,12 @@ App.prototype.bind = function() {
         transitions.onscrollProject()
     })
     this.bindAppLinks();
+
+    var _this = this
+    window.addEventListener('popstate',function() {
+        console.log(thisg)
+        _this.onpopstate(_this)
+    })
 }
 
 App.prototype.init = function(bodyClass) {
@@ -23,6 +29,15 @@ App.prototype.init = function(bodyClass) {
         e.preventDefault();
         transitions.toTop()
     })
+}
+
+App.prototype.onpopstate = function(_this) {
+    var button = {
+        href:window.location.href,
+        dataset: {}
+    }
+
+    _this.callPage(button,_this)
 }
 
 App.prototype.bindAppLinks = function() {
