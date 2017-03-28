@@ -92,14 +92,19 @@ App.prototype.callProject = function(button, _this) {
         button.style.width = button.offsetWidth + 'px'
         button.style.position = 'fixed'
         button.style.margin = 'auto'
-        $(button).addClass('section-container')
 
-        TweenMax.to(button,0.5,{top:'400px'})
+        button.style.left = button.offsetLeft + 'px'
+        button.style.right = button.offsetLeft + button.offsetWidth + 'px'
+
+        var top = button.offsetTop - $(document).scrollTop();
+        button.style.top = top + 'px'
+
+        $(button).addClass('section-container')
+        TweenMax.to(button,0.4,{top:'400px'})
 
 
         $(".temporary-DOM").append(button)
         transitions.toTop(function() {
-
 
             var timeline = new TimelineMax({onComplete: function() {
 
@@ -129,10 +134,9 @@ App.prototype.callProject = function(button, _this) {
                 })
             }})
 
-            timeline
-                .set(button,{left:'0',right:'0'})
-                .to(button,0.5,{width:'100%',zIndex:'100'})
 
+            timeline
+                .to(button,0.8,{left:'0',right:'0',width:'100%',zIndex:'100'})
 
         })
     },400)
