@@ -1,20 +1,27 @@
 var App = function() {
     this.app = "#app";
+    this.scroll = 0;
+    this.currentScrolling = 0;
 }
 
 App.prototype.bind = function() {
+
     document.querySelector('.close-nav').addEventListener('click', transitions.toggleNav)
     document.querySelector('.open-nav').addEventListener('click', transitions.toggleNav)
 
-    window.addEventListener('scroll',function() {
-        transitions.onscrollProject()
-    })
+
     this.bindAppLinks();
 
     var _this = this
     window.addEventListener('popstate',function() {
-        console.log(thisg)
         _this.onpopstate(_this)
+    })
+
+    window.addEventListener('mousewheel',function(e) {
+        e.preventDefault()
+
+        _this.currentScrolling = e.deltaY;
+        transitions.onscrollProject()
     })
 }
 
@@ -59,7 +66,7 @@ App.prototype.callPage = function(button,_this) {
 
     $("body").removeClass();
     TweenMax.fromTo('body',0.4,{opacity:1},{opacity:0,onComplete:function() {
-        document.querySelector('body').scrollTop = 0
+        transitions.toTop()
         $.get(link + '?ajax=1',function(data) {
             var html = JSON.parse(data).html;
             var bodyClass = JSON.parse(data).class;
@@ -141,6 +148,12 @@ App.prototype.callProject = function(button, _this) {
                     $("#app .ajax-link").on('click', function (e) {
                         e.preventDefault()
                         _this.callPage(this, _this)
+                    })
+
+
+                    $(".to-top").on('click', function(e) {
+                        e.preventDefault();
+                        transitions.toTop()
                     })
 
                     setTimeout(function() {
