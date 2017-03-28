@@ -63,6 +63,15 @@ DOMtransitions.prototype.projects = function() {
 
 DOMtransitions.prototype.toTop = function(callback) {
 
+    if(window.innerWidth < 1155) {
+        var scrollTop = $("body").scrollTop();
+        var to = {current:scrollTop}
+        TweenMax.to(to,0.5,{current:0, onUpdate:function() {
+            $("body").scrollTop(to.current)
+        }})
+        return
+    }
+
     var scroll = {top:app.scroll}
     TweenMax.to(scroll,1,{top:0,onUpdate: function() {
 

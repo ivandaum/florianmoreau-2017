@@ -1,4 +1,7 @@
 @include breakpoint($small-desktop) {
+  body {
+    overflow-y:scroll;
+  }
   .body-home {
     padding-bottom: 100px;
   }

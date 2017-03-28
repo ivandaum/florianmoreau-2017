@@ -13,16 +13,20 @@ App.prototype.bind = function() {
     this.bindAppLinks();
 
     var _this = this
-    window.addEventListener('popstate',function() {
-        _this.onpopstate(_this)
-    })
 
-    window.addEventListener('mousewheel',function(e) {
-        e.preventDefault()
 
-        _this.currentScrolling = e.deltaY;
-        transitions.onscrollProject()
-    })
+
+    if(window.innerWidth >= 1155) {
+        window.addEventListener('popstate',function() {
+            _this.onpopstate(_this)
+        })
+        window.addEventListener('mousewheel',function(e) {
+            e.preventDefault()
+
+            _this.currentScrolling = e.deltaY;
+            transitions.onscrollProject()
+        })
+    }
 }
 
 App.prototype.init = function(bodyClass) {

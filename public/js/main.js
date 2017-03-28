@@ -3,6 +3,9 @@ var app = new App()
 app.bind()
 
 function scroll() {
+
+    if(window.innerWidth < 1155) return
+
     requestAnimationFrame(scroll)
 
     app.currentScrolling += ( 0 - app.currentScrolling ) * 0.2
