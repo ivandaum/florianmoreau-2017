@@ -20,14 +20,23 @@ App.prototype.bind = function() {
         window.addEventListener('popstate',function() {
             _this.onpopstate(_this)
         })
-        window.addEventListener('mousewheel',function(e) {
+        document.addEventListener('mousewheel',function(e) {
             e.preventDefault()
 
             _this.currentScrolling = e.deltaY;
-            transitions.onscrollProject()
         })
     }
+    this.bindProject();
 }
+
+App.prototype.bindProject = function() {
+    $('.embed-container').on('click',function () {
+        $('.embed-container iframe').css("pointer-events", "auto");
+    }).on('mouseleave','iframe',function(){
+        $('.embed-container iframe').css("pointer-events", "none");
+    });
+}
+$(".single-content-text p img").parent().addClass('full-width')
 
 App.prototype.init = function(bodyClass) {
 
@@ -143,11 +152,13 @@ App.prototype.callProject = function(button, _this) {
                     $("body").addClass(bodyClass);
 
                     window.history.pushState({}, " ", link)
+
+                    _this.bindProject()
+
                     TweenMax.staggerFromTo([
                         document.querySelector('.single .section-container'),
                         document.querySelector('.single .single-background')
                     ],0.5,{opacity:0},{opacity:1},1);
-
 
                     $("#app .ajax-link").on('click', function (e) {
                         e.preventDefault()

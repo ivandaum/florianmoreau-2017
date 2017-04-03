@@ -39,7 +39,7 @@ class ProjectFormator
             'medium' => wp_get_attachment_image_src( get_post_thumbnail_id($project->ID), 'medium' )[0],
             'small' => wp_get_attachment_image_src( get_post_thumbnail_id($project->ID), 'thumbnail' )[0]
         );
-        $formatedProject['content'] = $project->post_content;
+        $formatedProject['content'] = wpautop($project->post_content);
         $formatedProject['has_content'] = !empty($project->post_content);
         $formatedProject['next_post'] = get_next_post( true );
         $tags = wp_get_post_tags($project->ID);

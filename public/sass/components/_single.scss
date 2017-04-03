@@ -53,18 +53,23 @@
       text-transform: uppercase;
       font-family: $secondFont;
       font-weight:bold;
-      padding:0;
+      padding:100px 0;
+      display:block;
+      max-width:450px;
+      margin:0 auto;
+      letter-spacing:1px;
 
-      span {
-        padding:100px 0;
-        display:block;
-        max-width:450px;
-        margin:0 auto;
-        letter-spacing:1px;
-      }
     }
     p:last-child {
       margin-bottom:0;
+    }
+    .full-width {
+      max-width:100%;
+      padding:0;
+    }
+
+    iframe {
+      pointer-events: none;
     }
   }
   &-cover {
