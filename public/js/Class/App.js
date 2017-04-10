@@ -2,7 +2,7 @@ var App = function() {
     this.app = "#app";
     this.scroll = 0;
     this.currentScrolling = 0;
-}
+};
 
 App.prototype.bind = function() {
 
@@ -13,8 +13,6 @@ App.prototype.bind = function() {
     this.bindAppLinks();
 
     var _this = this
-
-
 
     if(window.innerWidth >= 1155) {
         window.addEventListener('popstate',function() {
@@ -35,8 +33,8 @@ App.prototype.bindProject = function() {
     }).on('mouseleave','iframe',function(){
         $('.embed-container iframe').css("pointer-events", "none");
     });
+    $(".single-content-text p img").parent().addClass('full-width')
 }
-$(".single-content-text p img").parent().addClass('full-width')
 
 App.prototype.init = function(bodyClass) {
 

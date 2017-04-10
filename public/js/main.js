@@ -8,15 +8,14 @@ function scroll() {
 
     requestAnimationFrame(scroll)
 
-    app.currentScrolling += ( 0 - app.currentScrolling ) * 0.3
+    app.currentScrolling -= (app.currentScrolling/10);
     app.scroll += app.currentScrolling;
 
-    if(app.scroll <= 0) app.scroll += (0 - app.scroll) * 0.5
-    var maxHeight = document.querySelector('#app').offsetHeight - window.innerHeight
-    if(app.scroll >= maxHeight) app.scroll += (maxHeight - app.scroll) * 0.5
 
+    var maxHeight = document.querySelector('#app').offsetHeight - window.innerHeight;
+    if(app.scroll <= 0) app.scroll += (0 - app.scroll) * 0.5;
+    if(app.scroll >= maxHeight) app.scroll += (maxHeight - app.scroll) * 0.5;
 
-    // TweenMax.set(app.app,0.05,{transform:'translate(0,' + (-app.scroll) + 'px'})
     document.querySelector(app.app).style.transform = 'translate(0,' + (-app.scroll) + 'px';
 
     if(document.querySelectorAll('.single-background').length < 1) return
@@ -25,7 +24,8 @@ function scroll() {
     var top = 60 - (20 * percent)
     top = window.innerHeight * (top/100)
     top += app.scroll
-    TweenMax.to('.single-background',0.1,{top:top+'px'})
+
+    document.querySelector('.single-background').style.top = top + 'px';
 }
 
 scroll()
