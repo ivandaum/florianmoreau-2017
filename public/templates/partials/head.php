@@ -33,17 +33,19 @@
         <li><a href="<?= home_url('contact') ?>" cat-id="-1" class="ajax-link"><?= svg('small-arrow'); ?> Contact</a></li>
     </ul>
 </nav>
-<button class="open-nav moved-by-navbar"><?= svg('burger'); ?></button>
+<button class="open-nav moved-by-navbar moved-by-navbar"><?= svg('burger'); ?></button>
 <a href="<?= home_url() ?>" class="ajax-link logo-home moved-by-navbar"><?= svg('logo'); ?></a>
 
 <div class="bottom-nav moved-by-navbar">
     <ul class="networks">
         <li><a href="https://www.linkedin.com/in/florianmoreau/" target="_blank"><?= svg('in'); ?></a></li>
-        <li><a href="#" target="_blank"><?= svg('pin'); ?></a></li>
+        <li><a href="https://fr.pinterest.com/florian614/" target="_blank"><?= svg('pin'); ?></a></li>
         <li><a href="https://vimeo.com/florianmoreau" target="_blank"><?= svg('vimeo'); ?></a></li>
         <li><a href="https://soundcloud.com/florian614" target="_blank"><?= svg('sound'); ?></a></li>
     </ul>
 </div>
-<div class="scroll-hacking moved-by-navbar"></div>
+<div class="scroll-hacking moved-by-navbar">
+    <div class="scroll-dragging"></div>
+</div>
 <div class="temporary-DOM"></div>
 <div id="app" class="container">

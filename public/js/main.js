@@ -9,14 +9,25 @@ function scroll() {
     requestAnimationFrame(scroll)
 
     app.currentScrolling -= (app.currentScrolling/10);
-    app.scroll += app.currentScrolling;
+    app.scroll += app.currentScrolling / 2;
 
 
     var maxHeight = document.querySelector('#app').offsetHeight - window.innerHeight;
     if(app.scroll <= 0) app.scroll += (0 - app.scroll) * 0.5;
     if(app.scroll >= maxHeight) app.scroll += (maxHeight - app.scroll) * 0.5;
-
     document.querySelector(app.app).style.transform = 'translate(0,' + (-app.scroll) + 'px';
+
+    //
+
+    //
+    // if(app.scroll >= maxHeight + scrollingBarHeight) {
+    //     scrollingBar = maxHeight - scrollingBarHeight;
+    // }
+    var scrollingBarHeight = 130;
+
+    var percentScrolling = app.scroll / maxHeight * 100;
+    var scrollingBar = app.scroll - (scrollingBarHeight * (percentScrolling/100));
+    document.querySelector('.scroll-dragging').style.transform = 'translate(0,' + scrollingBar + 'px';
 
     if(document.querySelectorAll('.single-background').length < 1) return
 

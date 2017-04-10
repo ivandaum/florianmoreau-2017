@@ -36,9 +36,10 @@
   min-height:100px;
   position:relative;
   z-index:100;
-  box-shadow:0 0 10px 10px rgba(0,0,0,0.2);
+  box-shadow:0 0 50px 20px rgba(0, 0, 0, 0.25);
   margin-top:200px;
   &-text {
+    padding-top:100px;
     img {
       max-width:100%;
       height:auto;
@@ -58,7 +59,6 @@
       display:block;
       max-width:450px;
       margin:0 auto;
-      letter-spacing:1px;
 
     }
     p:last-child {
@@ -121,7 +121,9 @@
     border:none;
     z-index:100;
     left: -85px;
-    font-size: 15px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: bold;
     line-height: 50px;
     bottom: 20px;
     outline:none;
@@ -157,8 +159,9 @@
     will-change:background,color;
     letter-spacing:5px;
     position:relative;
+    font-size: 13px;
     svg {
-      height:15px;
+      height:11px;
       position:absolute;
       left:20px;
     }
@@ -190,7 +193,6 @@
   }
   p {
     margin:0 auto;
-    letter-spacing:1px;
     margin-bottom:40px;
   }
   p span {

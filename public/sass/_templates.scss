@@ -6,6 +6,7 @@ body {
   font-weight:normal;
   overflow:hidden;
   opacity:0;
+  letter-spacing:3px;
 }
 .open-nav {
   position:fixed;
@@ -18,7 +19,7 @@ body {
   border:none;
   background:none;
   outline:none;
-  @include transition-css(opacity);
+  @include transition-css((transform,opacity),0.3s);
   &:hover {
     opacity:0.5;
   }
@@ -48,12 +49,12 @@ body {
   top:0;
   left:-250px;
   width:250px;
-  z-index:200;
+  z-index: 350;
   will-change:left;
   .close-nav {
     position:absolute;
-    right:20px;
-    top:20px;
+    right: 33px;
+    top: 31px;
     padding:0;
     margin:0;
     background:none;
@@ -93,13 +94,13 @@ body {
     color: $text;
     font-size: 20px;
     line-height: 40px;
-    letter-spacing: 2px;
+    letter-spacing: 6px;
     position: relative;
     padding-left: 0;
     @include transition-css(padding, 0.3s, 0.2s);
     svg {
       position: absolute;
-      height:15px;
+      height:13px;
       width:0;
       top:0;
       bottom:0;
@@ -109,7 +110,7 @@ body {
       @include transition-css(width);
     }
     &:hover {
-      padding-left:15px;
+      padding-left:20px;
       @include transition-css(padding, 0.3s, 0s);
       svg {
         width:15px;
@@ -133,13 +134,23 @@ $translate: 100px;
 .moved-by-navbar {
   @include transition-css((transform,opacity),0.3s,0.1s);
 }
+
+.moved-by-navbar.open-nav {
+  @include transition-css((transform,opacity),0.3s);
+}
 .navbar-open .moved-by-navbar {
   -ms-transform: translate($translate, 0); /* IE 9 */
   -webkit-transform: translate($translate, 0); /* Safari */
   transform: translate($translate, 0);
   opacity:0.4;
 }
+.navbar-open .open-nav {
+  -ms-transform: translate(250px, 0); /* IE 9 */
+  -webkit-transform: translate(250px, 0); /* Safari */
+  transform: translate(250px, 0);
 
+  opacity:0.4;
+}
 .bottom-nav {
   position:fixed;
   bottom:20px;
@@ -196,6 +207,17 @@ $translate: 100px;
   bottom:30px;
   display:block;
   z-index:300;
+  .scroll-dragging {
+    width:5px;
+    right:-1px;
+    height:100px;
+    cursor:pointer;
+    background:$white;
+    border-radius:5px;
+    position:absolute;
+    top:0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
 }
 
 .body-single, .body-page {
