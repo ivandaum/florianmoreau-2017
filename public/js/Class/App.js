@@ -33,6 +33,7 @@ App.prototype.bindProject = function() {
     }).on('mouseleave','iframe',function(){
         $('.embed-container iframe').css("pointer-events", "none");
     });
+
     $(".single-content-text p img").parent().addClass('full-width')
 }
 
@@ -87,6 +88,10 @@ App.prototype.callPage = function(button,_this) {
 
             window.history.pushState({}," ",link)
             _this.init(bodyClass)
+
+            if($(".single-content-text")) {
+                _this.bindProject();
+            }
 
             $("#app .ajax-link").on('click',function(e) {
                 e.preventDefault()

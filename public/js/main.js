@@ -17,24 +17,21 @@ function scroll() {
     if(app.scroll >= maxHeight) app.scroll += (maxHeight - app.scroll) * 0.5;
     document.querySelector(app.app).style.transform = 'translate(0,' + (-app.scroll) + 'px';
 
-    //
 
-    //
-    // if(app.scroll >= maxHeight + scrollingBarHeight) {
-    //     scrollingBar = maxHeight - scrollingBarHeight;
-    // }
-    var scrollingBarHeight = 130;
+    var percentScrolled = app.scroll/(document.querySelector('#app').offsetHeight - window.innerHeight);
+    var hackingBarMaxHeight = document.querySelector('.scroll-hacking').offsetHeight;
 
-    var percentScrolling = app.scroll / maxHeight * 100;
-    var scrollingBar = app.scroll - (scrollingBarHeight * (percentScrolling/100));
+    var addToScroll = 100 * (app.scroll / maxHeight);
+
+    var scrollingBar = (hackingBarMaxHeight * percentScrolled) - addToScroll;
     document.querySelector('.scroll-dragging').style.transform = 'translate(0,' + scrollingBar + 'px';
 
+    // IF THERE IS A BACKGROUND ON SINGLE
     if(document.querySelectorAll('.single-background').length < 1) return
 
-    var percent = app.scroll/document.querySelector('#app').offsetHeight
-    var top = 60 - (20 * percent)
-    top = window.innerHeight * (top/100)
-    top += app.scroll
+    var top = 60 - (20 * percentScrolled);
+    top = window.innerHeight * (top/100);
+    top += app.scroll;
 
     document.querySelector('.single-background').style.top = top + 'px';
 }
