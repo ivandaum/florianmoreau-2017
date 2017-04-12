@@ -1,29 +1,37 @@
 var transitions = new DOMtransitions()
-var app = new App()
+var app = new App();
+var scrollbarClicked = false;
+var mouseY = 0;
+var scrollingBar = 0;
 app.bind()
 
 function scroll() {
 
     if(window.innerWidth < 1155) return
+    var maxHeight = document.querySelector('#app').offsetHeight - window.innerHeight;
+
 
     requestAnimationFrame(scroll)
 
-    app.currentScrolling -= (app.currentScrolling/10);
-    app.scroll += app.currentScrolling / 2;
+    if(app.scrollTo) {
+        app.scroll += (mouseY - app.scroll) * 0.1;
+    } else {
+        app.currentScrolling -= (app.currentScrolling/10);
+        app.scroll += app.currentScrolling / 2;
+    }
 
 
-    var maxHeight = document.querySelector('#app').offsetHeight - window.innerHeight;
     if(app.scroll <= 0) app.scroll += (0 - app.scroll) * 0.5;
     if(app.scroll >= maxHeight) app.scroll += (maxHeight - app.scroll) * 0.5;
-    document.querySelector(app.app).style.transform = 'translate(0,' + (-app.scroll) + 'px';
 
+    document.querySelector(app.app).style.transform = 'translate(0,' + (-app.scroll) + 'px';
 
     var percentScrolled = app.scroll/(document.querySelector('#app').offsetHeight - window.innerHeight);
     var hackingBarMaxHeight = document.querySelector('.scroll-hacking').offsetHeight;
 
     var addToScroll = 100 * (app.scroll / maxHeight);
 
-    var scrollingBar = (hackingBarMaxHeight * percentScrolled) - addToScroll;
+    scrollingBar = (hackingBarMaxHeight * percentScrolled) - addToScroll;
     document.querySelector('.scroll-dragging').style.transform = 'translate(0,' + scrollingBar + 'px';
 
     // IF THERE IS A BACKGROUND ON SINGLE

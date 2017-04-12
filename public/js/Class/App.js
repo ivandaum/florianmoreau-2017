@@ -2,6 +2,7 @@ var App = function() {
     this.app = "#app";
     this.scroll = 0;
     this.currentScrolling = 0;
+    this.scrollTo = 0;
 };
 
 App.prototype.bind = function() {
@@ -22,7 +23,28 @@ App.prototype.bind = function() {
             e.preventDefault()
 
             _this.currentScrolling = e.deltaY;
+            app.scrollTo= false;
         })
+
+        document.querySelector('.scroll-dragging').addEventListener('mousedown', function(e) {
+            scrollbarClicked = true;
+            $("body").addClass('noselect');
+        });
+        window.addEventListener('mouseup', function() {
+           scrollbarClicked = false;
+            $("body").removeClass('noselect')
+        });
+        document.addEventListener('mousemove', function(e) {
+
+            if(scrollbarClicked) {
+                app.scrollTo = true;
+                var maxHeight = document.querySelector('#app').offsetHeight - window.innerHeight;
+                var addToScroll = 70 * (e.clientY/window.innerHeight);
+                var scrollbarPercent = (e.clientY+addToScroll)/ (window.innerHeight);
+                mouseY = maxHeight * scrollbarPercent;
+            }
+
+        });
     }
     this.bindProject();
 }
