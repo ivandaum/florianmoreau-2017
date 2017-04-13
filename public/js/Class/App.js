@@ -120,7 +120,9 @@ App.prototype.callPage = function(button,_this) {
                 _this.callPage(this,_this)
             })
 
-        })
+        }).fail(function() {
+            window.location.href = link;
+        });
     }});
 }
 
@@ -150,25 +152,13 @@ App.prototype.callProject = function(button, _this) {
     setTimeout(function() {
 
         button.style.width = button.offsetWidth + 'px'
-        button.style.position = 'fixed'
-        button.style.margin = 'auto'
+        button.style.position = 'fixed';
+        // $(button).addClass('section-container');
+        transitions.toTop();
 
-        button.style.left = button.offsetLeft + 'px'
-        button.style.right = button.offsetLeft + button.offsetWidth + 'px'
-
-        var top = button.offsetTop - $(document).scrollTop();
-        button.style.top = top + 'px'
-
-        $(button).addClass('section-container')
-        TweenMax.to(button,0.4,{top:'400px'})
-
-
-        $(".temporary-DOM").append(button)
-        transitions.toTop(function() {
-
-            var timeline = new TimelineMax({onComplete: function() {
-
-                $.get(link + '?ajax=1', function (data) {
+        var timeline = new TimelineMax({onComplete: function() {
+            $.get(link + '?ajax=1', function (data) {
+                setTimeout(function() {
                     var html = JSON.parse(data).html;
                     var bodyClass = JSON.parse(data).class;
 
@@ -181,9 +171,11 @@ App.prototype.callProject = function(button, _this) {
                     _this.bindProject()
 
                     TweenMax.staggerFromTo([
-                        document.querySelector('.single .section-container'),
-                        document.querySelector('.single .single-background')
-                    ],0.5,{opacity:0},{opacity:1},1);
+                        document.querySelector('.single-content-text'),
+                        document.querySelector('.title.content-container'),
+                        document.querySelector('.single-background'),
+                        document.querySelector('.project-year')
+                    ],0.5,{opacity:0},{opacity:1},0.5);
 
                     $("#app .ajax-link").on('click', function (e) {
                         e.preventDefault()
@@ -194,20 +186,20 @@ App.prototype.callProject = function(button, _this) {
                     $(".to-top").on('click', function(e) {
                         e.preventDefault();
                         transitions.toTop()
-                    })
+                    });
+                },500)
 
-                    setTimeout(function() {
-                        document.querySelector(".temporary-DOM").innerHTML = ""
-                    },500)
-                }).fail(function() {
-                    window.location.href = link;
-                });
-            }})
+            }).fail(function() {
+                window.location.href = link;
+            });
+        }});
+        timeline
+            .to(button,0.4,{top:'400px'})
+            .set('.project-card_cover',{position:'absolute',left:'0',right:'0'})
+            .call( function() {
+                TweenMax.to(button,0.5,{width:'100%',margin:'0 auto',maxWidth:'1200px',left:'0',right:'0',height:'100%'})
+                TweenMax.to('.project-card_cover',0.5,{transform:'translate(-400px,-160px'})
+            });
 
-
-            timeline
-                .to(button,0.8,{left:'0',right:'0',width:'100%',zIndex:'100'})
-
-        })
     },400)
 }
