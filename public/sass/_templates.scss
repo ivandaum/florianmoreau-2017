@@ -219,6 +219,7 @@ $translate: 100px;
   .scroll-dragging {
     width:5px;
     right:-1px;
+    @include transition-css();
     height:100px;
     cursor:pointer;
     background:$white;
@@ -227,6 +228,10 @@ $translate: 100px;
     top:0;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
   }
+}
+.scrolling-bar .scroll-dragging {
+  width:10px;
+  right:-4px;
 }
 
 .body-single, .body-page {

@@ -98,7 +98,7 @@
     height:25px;
     line-height:25px;
     font-size:15px;
-    top:5px;
+    top:10px;
     font-weight:bold;
     &:after {
       content:" ";
@@ -207,4 +207,7 @@
   strong span {
     font-weight:bold;
   }
+}
+.single .single-content-text p a {
+    color:$grey2;
 }

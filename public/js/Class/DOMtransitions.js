@@ -36,7 +36,7 @@ DOMtransitions.prototype.projects = function() {
         $(".section-container-title h1").addClass('active')
     },100)
     setTimeout(function() {
-        TweenMax.staggerFromTo('.section-container-title h1 span',0.5, {color:'black'},{color:'white'},0.2)
+        TweenMax.staggerFromTo('.section-container-title h1 span',0.5, {color:'#131313'},{color:'white'},0.2)
     },300)
 
     setTimeout(function() {

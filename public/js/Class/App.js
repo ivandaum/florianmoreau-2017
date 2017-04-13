@@ -28,19 +28,19 @@ App.prototype.bind = function() {
 
         document.querySelector('.scroll-dragging').addEventListener('mousedown', function(e) {
             scrollbarClicked = true;
-            $("body").addClass('noselect');
+            $("body").addClass('noselect scrolling-bar');
         });
         window.addEventListener('mouseup', function() {
            scrollbarClicked = false;
-            $("body").removeClass('noselect')
+            $("body").removeClass('noselect scrolling-bar')
         });
         document.addEventListener('mousemove', function(e) {
 
             if(scrollbarClicked) {
                 app.scrollTo = true;
-                var maxHeight = document.querySelector('#app').offsetHeight - window.innerHeight;
+                var maxHeight = document.querySelector('#app').offsetHeight - window.innerHeight + 70;
                 var addToScroll = 70 * (e.clientY/window.innerHeight);
-                var scrollbarPercent = (e.clientY+addToScroll)/ (window.innerHeight);
+                var scrollbarPercent = (e.clientY+addToScroll - 70)/ (window.innerHeight);
                 mouseY = maxHeight * scrollbarPercent;
             }
 
