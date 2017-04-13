@@ -199,7 +199,9 @@ App.prototype.callProject = function(button, _this) {
                     setTimeout(function() {
                         document.querySelector(".temporary-DOM").innerHTML = ""
                     },500)
-                })
+                }).fail(function() {
+                    window.location.href = link;
+                });
             }})
 
 
