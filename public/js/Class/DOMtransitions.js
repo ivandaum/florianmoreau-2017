@@ -28,7 +28,7 @@ DOMtransitions.prototype.checkPage = function(className) {
 DOMtransitions.prototype.projects = function() {
 
     TweenMax.set('.projects-list', {marginTop:'300px'})
-    TweenMax.set('.section-container-title h1 span', {color:'black'})
+    TweenMax.set('.section-container-title h1 span', {color:'#131313'})
     TweenMax.set('.projects-list', {marginTop:'300px'})
     TweenMax.set('.project-card', {opacity:0})
     TweenMax.set('.project-card', {top:'-50px'})

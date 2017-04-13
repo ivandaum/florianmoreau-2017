@@ -50,12 +50,14 @@ App.prototype.bind = function() {
 }
 
 App.prototype.bindProject = function() {
-    $('.embed-container').on('click',function () {
-        $('.embed-container iframe').css("pointer-events", "auto");
-    }).on('mouseleave','iframe',function(){
-        $('.embed-container iframe').css("pointer-events", "none");
-    });
+    if(window.innerWidth > 1000) {
+        $('.embed-container').on('click',function () {
+            $('.embed-container iframe').css("pointer-events", "auto");
+        }).on('mouseleave','iframe',function(){
+            $('.embed-container iframe').css("pointer-events", "none");
+        });
 
+    }
     $(".single-content-text p img").parent().addClass('full-width')
 }
 
@@ -170,12 +172,16 @@ App.prototype.callProject = function(button, _this) {
 
                     _this.bindProject()
 
-                    TweenMax.staggerFromTo([
-                        document.querySelector('.single-content-text'),
-                        document.querySelector('.title.content-container'),
-                        document.querySelector('.single-background'),
-                        document.querySelector('.project-year')
-                    ],0.5,{opacity:0},{opacity:1},0.5);
+                    var timeline = new TimelineMax({})
+                    timeline
+                        .fromTo([
+                            document.querySelector('.title.content-container'),
+                            document.querySelector('.single-background')
+                        ],0.5,{opacity:0},{opacity:1})
+                        .staggerFromTo([
+                            document.querySelector('.single-content-text'),
+                            document.querySelector('.project-year')
+                        ],0.5,{opacity:0},{opacity:1},0.5);
 
                     $("#app .ajax-link").on('click', function (e) {
                         e.preventDefault()

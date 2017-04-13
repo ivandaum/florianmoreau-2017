@@ -45,7 +45,12 @@
 }
 
 @include breakpoint($phone) {
-
+  iframe {
+    pointer-events: auto !important;
+  }
+  .projects-list {
+    margin-top:0 !important;
+  }
   .single .single-background {
     display:none;
   }
@@ -55,8 +60,11 @@
   body {
     padding-bottom:100px;
   }
+  .single .single-content-text p {
+    padding:0 10px;
+  }
   .single, .page {
-    margin-bottom:100px;
+    //margin-bottom:100px;
   }
   .bottom-nav {
     position:absolute;
@@ -107,7 +115,7 @@
     font-weight: bold;
     text-align: left;
     float:left;
-    background: $black;
+    background: $black3;
     color: $white;
     padding: 0 5%;
     bottom: 0;
@@ -134,7 +142,7 @@
     font-weight: bold;
     text-align: right;
     float:left;
-    background: $black;
+    background: $black3;
     color: $white;
     padding: 0 5%;
     bottom: 0;
