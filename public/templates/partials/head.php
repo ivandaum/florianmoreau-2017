@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="<?= get_option('blogname') ?>" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
-
+    <meta charset="utf-8">
     <meta name="description" content="<?= get_option('blogdescription') ?>" />
     <meta name="keywords" content="portfolio, graphism, motion" />
 
