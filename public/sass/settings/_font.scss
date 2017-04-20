@@ -51,7 +51,9 @@ $secondFont: 'avenir', arial, sans-serif;
 
 @font-face {
   font-family: 'avenir';
-  src: url($avenir-directory + 'AvenirLTStd-Black.otf') format('otf');
+  src: url($avenir-directory + 'AvenirLTStd-Black.otf') format('otf'),
+url($avenir-directory + 'avenirnextltpro-bold-webfont.woff2') format('woff2'),
+url($avenir-directory + 'avenirnextltpro-bold-webfont.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
