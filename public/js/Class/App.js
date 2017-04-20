@@ -16,15 +16,23 @@ App.prototype.bind = function() {
     var _this = this
 
     if(window.innerWidth >= 1155) {
-        window.addEventListener('popstate',function() {
+        window.addEventListener('popstate', function () {
             _this.onpopstate(_this)
         })
-        document.addEventListener('mousewheel',function(e) {
-            e.preventDefault()
 
+        // document.addEventListener('mousewheel', function(e) {
+        //     e.preventDefault()
+        //     _this.currentScrolling = e.deltaY;
+        //     app.scrollTo= false;
+        // })
+
+        document.addEventListener('wheel', function(e) {
+            e.preventDefault()
+            console.log(e);
             _this.currentScrolling = e.deltaY;
             app.scrollTo= false;
         })
+
 
         document.querySelector('.scroll-dragging').addEventListener('mousedown', function(e) {
             scrollbarClicked = true;

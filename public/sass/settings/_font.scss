@@ -2,24 +2,52 @@ $font-directory:'/wp-content/themes/florianmoreau-2017/public/fonts/';
 $roboto-directory: $font-directory + 'roboto/';
 $avenir-directory: $font-directory + 'avenir/';
 
-$primaryFont: 'roboto', arial, sans-serif;
+$primaryFont: 'Roboto-Regular', arial, sans-serif;
 $secondFont: 'avenir', arial, sans-serif;
 
+//@font-face {
+//  font-family: 'roboto';
+//  src: url($roboto-directory + 'roboto-regular-webfont.woff2') format('woff2'),
+//  url($roboto-directory + 'roboto-regular-webfont.woff') format('woff');
+//  font-weight: normal;
+//  font-style: normal;
+//
+//}
 @font-face {
-  font-family: 'roboto';
-  src: url($roboto-directory + 'roboto-regular-webfont.woff2') format('woff2'),
-  url($roboto-directory + 'roboto-regular-webfont.woff') format('woff');
+  font-family: 'Roboto-Regular';
+  src: url($roboto-directory + 'Roboto-Regular.eot');
+  src: url($roboto-directory + 'Roboto-Regular.woff2') format('woff2'),
+  url($roboto-directory + 'Roboto-Regular.woff') format('woff'),
+  url($roboto-directory + 'Roboto-Regular.ttf') format('truetype'),
+  url($roboto-directory + 'Roboto-Regular.svg#Roboto-Regular') format('svg'),
+  url($roboto-directory + 'Roboto-Regular.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
-
 }
+
+//
+//@font-face {
+//  font-family: 'avenir';
+//  src: url($avenir-directory + 'AvenirLTStd-Medium.otf') format('otf');
+//  font-weight: normal;
+//  font-style: normal;
+//
+//}
 
 @font-face {
   font-family: 'avenir';
-  src: url($avenir-directory + 'AvenirLTStd-Medium.otf') format('otf');
+  src: url($avenir-directory + 'AvenirLTStd-Medium.eot');
+  src: url($avenir-directory + 'AvenirLTStd-Medium.woff2') format('woff2'),
+  url($avenir-directory + 'AvenirLTStd-Medium.otf') format('otf'),
+  url($avenir-directory + 'AvenirLTStd-Medium.woff') format('woff'),
+  url($avenir-directory + 'AvenirLTStd-Medium.ttf') format('truetype'),
+  url($avenir-directory + 'AvenirLTStd-Medium.svg#AvenirLTStd-Medium') format('svg'),
+  url($avenir-directory + 'AvenirLTStd-Medium.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
 }
+
+
 
 @font-face {
   font-family: 'avenir';
