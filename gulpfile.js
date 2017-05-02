@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var cleanCSS = require('gulp-clean-css');
 
 DEST_DIR = './public/compressed/';
 JS_FILE = [
@@ -36,7 +37,8 @@ gulp.task('compile:sass', function () {
         }))
         .pipe(concat('/main.min.css'))
         .pipe(sass.sync().on('error', sass.logError))
-        .pipe(gulp.dest(DEST_DIR));
+        .pipe(cleanCSS())
+	.pipe(gulp.dest(DEST_DIR));
 });
 
 gulp.task('watch:assets', function() {
