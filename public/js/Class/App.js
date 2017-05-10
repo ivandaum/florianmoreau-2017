@@ -28,7 +28,6 @@ App.prototype.bind = function() {
 
         document.addEventListener('wheel', function(e) {
             e.preventDefault()
-            console.log(e);
             _this.currentScrolling = e.deltaY;
             app.scrollTo= false;
         })
