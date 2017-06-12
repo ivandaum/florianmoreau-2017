@@ -27,8 +27,12 @@ App.prototype.bind = function() {
         // })
 
         document.addEventListener('wheel', function(e) {
-            e.preventDefault()
-            _this.currentScrolling = e.deltaY;
+            e.preventDefault();
+            var delta = e.deltaY;
+            if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+                delta *= 5;
+            }
+            _this.currentScrolling = delta;
             app.scrollTo= false;
         })
 
